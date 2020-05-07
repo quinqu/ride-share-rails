@@ -1,0 +1,14 @@
+<h2> <%= @passenger.name %> </h2>
+
+<p> <%= @passenger.phone_num %> </p> 
+
+
+<% @passenger.trips.each do |trip| %>
+  <p>
+  Date: <%= trip.date %> 
+  Cost: <%= trip.cost %> 
+  Driver: <%= trip.driver.name %> 
+  Rating: <%= trip.rating %> 
+  </p> 
+
+<% end %>
