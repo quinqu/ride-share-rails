@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
+
   def index
     @trip = Trip.all
-
   end
 
   def show 
@@ -11,12 +11,10 @@ class TripsController < ApplicationController
     if @trip.nil?
       redirect_to trips_path
     end 
-
   end 
 
   def new
     @trip = Trip.new 
-
   end 
 
   def create
@@ -38,7 +36,6 @@ class TripsController < ApplicationController
       head :not_found
       return 
     end 
-
   end 
 
 

@@ -19,7 +19,6 @@ class PassengersController < ApplicationController
 
   def create
     passenger = Passenger.new(passenger_params)
-
     if passenger.save 
       redirect_to passengers_path
     else 
@@ -30,7 +29,6 @@ class PassengersController < ApplicationController
 
   def edit 
     @passenger = Passenger.find_by(id: params[:id])
-    
     if @passenger.nil?
       head :not_found
       return 
@@ -40,7 +38,6 @@ class PassengersController < ApplicationController
 
   def update
     passenger = Passenger.find_by(id: params[:id])
-
     if passenger.nil? 
       head :not_found
       return 
@@ -57,6 +54,5 @@ class PassengersController < ApplicationController
 
   def passenger_params
     return params.require(:passenger).permit(:name, :phone_num)
-
   end 
 end
