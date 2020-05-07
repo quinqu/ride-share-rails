@@ -34,7 +34,7 @@ class DriversController < ApplicationController
     @driver = Driver.find_by(id: params[:id])
 
     if @driver.nil?
-      head :not_fount
+      head :not_found
       return
     end 
   end 
