@@ -16,7 +16,7 @@ class DriversController < ApplicationController
 
   def new
     @driver = Driver.new
-
+    @driver.available = true
   end 
 
   def create

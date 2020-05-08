@@ -5,6 +5,11 @@ class Driver < ApplicationRecord
   validates :vin, presence: true 
   validates :available, presence: true
 
+  def self.find_available_driver
+
+    return Driver.find_by(available: true)
+  end
+
   def total_earnings(driver_id)
     list_of_trips = Driver.find_by(id: driver_id).trips
 
