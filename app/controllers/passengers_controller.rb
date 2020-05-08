@@ -19,13 +19,8 @@ class PassengersController < ApplicationController
 
   def create
     passenger = Passenger.new(passenger_params)
-    puts "this is passenger params: #{passenger_params}"
     if passenger.save 
-      redirect_to passenger_path(passenger)
-    elsif passenger.save == false 
-      flash[:error] ='Error'
-      flash[:alert] ='Please verify data'
-      redirect_to new_passenger_path
+      redirect_to passengers_path
     else
       render :new
       return 
@@ -49,11 +44,6 @@ class PassengersController < ApplicationController
     elsif passenger.update(passenger_params)
       redirect_to passenger_path
       return 
-
-    elsif passenger.save == false 
-      flash[:error] ='Error'
-      flash[:alert] ='Please verify data'
-      redirect_to edit_passenger_path
     else
       render :edit 
       return 

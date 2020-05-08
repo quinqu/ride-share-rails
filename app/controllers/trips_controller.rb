@@ -14,15 +14,18 @@ class TripsController < ApplicationController
   end 
 
   def new
+    puts "this is trip_params: #{trips_params}"
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
       @trip = passenger.trips.new
     else 
       @trip = Trip.new 
     end 
+   
   end 
 
   def create
+    #Pparams[:passenger_id]
     trip = Trip.create(trips_params)
 
     if trip.save
@@ -66,11 +69,13 @@ class TripsController < ApplicationController
       "date": DateTime.now().to_s, 
       "rating": 0, 
       "cost": Trip.trip_cost, 
-      "driver_id": nil, #need to add driver method 
-      "passenger_id": params[:passenger_id]
+      "driver_id": nil #need to add driver method 
+      #"passenger_id": params[:passenger_id]
     }
 
-    return params.require(:trip).permit(:date => DateTime.now().to_s, :rating => 0, :cost => Trip.trip_cost, :driver_id => 1, :passenger_id => params[:passenger_id])
+    return defaults
+
+    #return params.require(:trip).permit(:date => DateTime.now().to_s, :rating => 0, :cost => Trip.trip_cost, :driver_id => 1, :passenger_id => params[:passenger_id])
   end 
 
 
