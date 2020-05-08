@@ -14,10 +14,9 @@ class TripsController < ApplicationController
   end 
 
   def new
-    puts "this is trip_params: #{trips_params}"
     if params[:passenger_id]
       passenger = Passenger.find_by(id: params[:passenger_id])
-      @trip = passenger.trips.new
+      @trip = passenger.trips.new()
     else 
       @trip = Trip.new 
     end 
@@ -25,10 +24,17 @@ class TripsController < ApplicationController
   end 
 
   def create
-    #Pparams[:passenger_id]
-    trip = Trip.create(trips_params)
+    passenger = params[:passenger_id]
 
-    if trip.save
+    @trip = Trip.new(date: DateTime.now().to_s, 
+    rating: 0, 
+    cost: Trip.trip_cost, 
+    driver_id: Driver.find_available_driver, 
+    passenger_id: passenger
+    )
+
+    puts "this is the driver #{@trip.driver_id}"
+    if @trip.save
       redirect_to trip_path
       return 
     else 
@@ -64,19 +70,18 @@ class TripsController < ApplicationController
 
   private 
 
-  def trips_params
-    defaults = {
-      "date": DateTime.now().to_s, 
-      "rating": 0, 
-      "cost": Trip.trip_cost, 
-      "driver_id": nil #need to add driver method 
-      #"passenger_id": params[:passenger_id]
-    }
+  # def trips_params
+  #   # defaults = {
+  #   #   date: DateTime.now().to_s, 
+  #   #   rating: 0, 
+  #   #   cost: Trip.trip_cost, 
+  #   #   driver_id: Driver.find_available_driver, 
+  #   #   passenger_id: passenger_id
+  #   # }
 
-    return defaults
-
-    #return params.require(:trip).permit(:date => DateTime.now().to_s, :rating => 0, :cost => Trip.trip_cost, :driver_id => 1, :passenger_id => params[:passenger_id])
-  end 
+  #   #return defaults
+  #   return params.require(:trip)
+  # end 
 
 
   
