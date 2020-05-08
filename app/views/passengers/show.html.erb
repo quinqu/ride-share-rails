@@ -3,15 +3,28 @@
 <p> <%= @passenger.phone_num %> </p> 
 
 
-<% @passenger.trips.each do |trip| %>
-  <p>
-  Date: <%= trip.date %> 
-  Cost: <%= trip.cost %> 
-  Driver: <%= trip.driver.name %> 
-  Rating: <%= trip.rating %> 
-  </p> 
+<p> <%= @passenger.total_passenger_cost(@passenger.id) %><p> 
 
-<% end %>
+   <table>
+    <tr>
+      <th>Date</th>
+      <th>Cost</th>
+      <th>Driver </th>
+      <th>Rating </th>
+    </tr>
+
+ <% @passenger.trips.each do |trip| %>
+    <tr>
+      <td><%= trip.date%> </td>
+      <td><%= trip.cost %></td>
+      <td><%= trip.driver.name %></td>
+      <td><%= trip.rating %></td>
+
+    </tr>
+    
+    <%end %>
+
+</table>
 
 
 <%= link_to "Edit", edit_passenger_path(@passenger), method: :get %> 
