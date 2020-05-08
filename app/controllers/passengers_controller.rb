@@ -1,7 +1,6 @@
 class PassengersController < ApplicationController
   def index
-    @passenger = Passenger.all
-   
+    @passenger = Passenger.all.order(name: :asc)
   end
 
   def show 
@@ -20,8 +19,9 @@ class PassengersController < ApplicationController
 
   def create
     passenger = Passenger.new(passenger_params)
+    puts "this is passenger params: #{passenger_params}"
     if passenger.save 
-      redirect_to passengers_path
+      redirect_to passenger_path(passenger)
     elsif passenger.save == false 
       flash[:error] ='Error'
       flash[:alert] ='Please verify data'

@@ -2,6 +2,10 @@
 <p> <%= @passenger.phone_num %> </p> 
 <p> <%= @passenger.total_passenger_cost(@passenger.id) %><p> 
 
+<%= link_to "Edit", edit_passenger_path(@passenger), method: :get %> 
+<%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Are you sure you want to delete passenger, #{@passenger.name}?" }%> 
+<%= link_to "Request Trip", new_passenger_trip_path(@passenger.id)%> 
+
 <h3> Passenger Trips </h3>
 
 <table>
@@ -10,7 +14,7 @@
       <th>Cost</th>
       <th>Driver </th>
       <th>Rating </th>
-      <th> View trip </th> 
+      <th> View Trip </th> 
       
     </tr>
 
@@ -29,5 +33,4 @@
 </table>
 
 
-<%= link_to "Edit", edit_passenger_path(@passenger), method: :get %> 
-<%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Are you sure you want to delete passenger, #{@passenger.name}?" }%> 
+

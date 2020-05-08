@@ -14,7 +14,12 @@ class TripsController < ApplicationController
   end 
 
   def new
-    @trip = Trip.new 
+    if params[:passenger_id]
+      passenger = Passenger.find_by(id: params[:passenger_id])
+      @trip = passenger.trips.new
+    else 
+      @trip = Trip.new 
+    end 
   end 
 
   def create
@@ -57,6 +62,14 @@ class TripsController < ApplicationController
   private 
 
   def trips_params
-    return params.require(:trip).permit(:date, :rating, :cost, :passenger_id, :driver_id)
+    return {
+      "date": DateTime.now().to_s, 
+      "rating": 0, 
+      "cost": Trip.trip_cost, 
+      "driver_id": nil,
+      "passenger_id": params[:passenger_id]
+    }
   end 
+
+
 end
