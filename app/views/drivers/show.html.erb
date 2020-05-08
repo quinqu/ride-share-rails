@@ -19,7 +19,6 @@
 
   <tr>
     <td> <%= trip.date %> </td>
-
     <td> <%= link_to trip.passenger.name, passenger_path(trip.passenger_id) %> </td>
     <td> <%= trip.rating %> </td>
     <td> <%= trip.cost %> </td>
@@ -30,3 +29,4 @@
 </table>
 
 <%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
+<%= link_to "Delete", driver_path(@driver), method: :delete, data: {confirm: "Are you sure you want to delete driver, #{@driver.name}?" } %> 
