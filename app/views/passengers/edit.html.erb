@@ -1,4 +1,8 @@
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 
-
-<%= render partial: "form", locals: { action_name: "Edit" } %>
+<%= render partial: "form", locals: { action_name: "Edit", name: "#{@passenger.name}", phone_number: "#{@passenger.phone_num}" }%>
 
