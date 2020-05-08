@@ -5,12 +5,14 @@ class Driver < ApplicationRecord
     list_of_trips = Driver.find_by(id: driver_id).trips
 
     total_earnings = 0
+    fee = 1.65
 
     list_of_trips.each do |trip|
-      total_earnings += trip.cost
+      drivers_portion = (trip.cost - fee) * 0.8
+      total_earnings += drivers_portion
     end
 
-    return total_earnings
+    return total_earnings.round(2)
   end
 
   def average_rating(driver_id)
