@@ -1,6 +1,7 @@
 class PassengersController < ApplicationController
   def index
     @passenger = Passenger.all
+   
   end
 
   def show 
@@ -21,7 +22,9 @@ class PassengersController < ApplicationController
     passenger = Passenger.new(passenger_params)
     if passenger.save 
       redirect_to passengers_path
-    else 
+    elsif passenger.save == false 
+      #TODO
+    else
       render :new
       return 
     end 
@@ -44,11 +47,30 @@ class PassengersController < ApplicationController
     elsif passenger.update(passenger_params)
       redirect_to passenger_path
       return 
+
+    elsif passenger.save == false 
+      #TODO 
+
     else
       render :edit 
       return 
     end 
   end 
+
+  def destroy 
+    @passenger = Passenger.find_by(id: params[:id])
+    if @passenger.nil? 
+      redirect_to passengers_path 
+      return 
+    end 
+
+    @passenger.destroy 
+
+    redirect_to passengers_path 
+    return 
+  end 
+
+
 
   private
 
