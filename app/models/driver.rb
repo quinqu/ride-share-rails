@@ -33,6 +33,6 @@ class Driver < ApplicationRecord
       total_ratings += trip.rating 
     end
 
-    return (total_ratings.to_f / trips_count).round(2)
+    return (total_ratings.to_f / trips_count).round(1)
   end
 end
