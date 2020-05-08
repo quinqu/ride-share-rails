@@ -1,3 +1,8 @@
 <% @driver.each do |driver| %>
-  <p>Name: <%= driver.name %> VIN: <%= driver.vin %> Available: <%= driver.available%> </p>
+  <p>
+    Name: <%= link_to driver.name, driver_path(driver.id)%> 
+    VIN: <%= driver.vin %> 
+    Available: <%= driver.available%> 
+    
+  </p>
 <% end %>

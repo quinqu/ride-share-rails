@@ -1,3 +1,9 @@
 <p>Driver: <%= @driver.name %> </p>
 <p>VIN: <%= @driver.vin %> </p>
 <p>Available: <%= @driver.available %> </p>
+
+<p>Total Earnings: <%= @driver.total_earnings(@driver.id) %> </p>
+<p>Average Rating: <%= @driver.average_rating(@driver.id) %> </p>
+<p>List of Trips: <p>
+
+<%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
