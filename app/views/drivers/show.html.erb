@@ -6,4 +6,27 @@
 <p>Average Rating: <%= @driver.average_rating(@driver.id) %> </p>
 <p>List of Trips: <p>
 
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Passenger</th>
+    <th>Rating</th>
+    <th>Cost</th>
+  </tr>
+
+
+<% @driver.trips.each do |trip| %>
+
+  <tr>
+    <td> <%= trip.date %> </td>
+
+    <td> <%= link_to trip.passenger.name, passenger_path(trip.passenger_id) %> </td>
+    <td> <%= trip.rating %> </td>
+    <td> <%= trip.cost %> </td>
+  </tr>
+
+<% end %>
+
+</table>
+
 <%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
