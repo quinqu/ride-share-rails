@@ -9,7 +9,7 @@
       <th> Details </th>
 
     </tr>
- <% @trips.each do |trip| %>
+ <% @trip.each do |trip| %>
     <tr>
       <td><%= trip.date%> </td>
       <% driver = Driver.find_by(id: trip.driver_id) %>
