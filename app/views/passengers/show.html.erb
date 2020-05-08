@@ -1,11 +1,10 @@
 <h2> <%= @passenger.name %> </h2>
-
 <p> <%= @passenger.phone_num %> </p> 
-
-
 <p> <%= @passenger.total_passenger_cost(@passenger.id) %><p> 
 
-   <table>
+<h3> Passenger Trips </h3>
+
+<table>
     <tr>
       <th>Date</th>
       <th>Cost</th>
@@ -16,13 +15,12 @@
  <% @passenger.trips.each do |trip| %>
     <tr>
       <td><%= trip.date%> </td>
-      <td><%= trip.cost %></td>
-      <td><%= trip.driver.name %></td>
+      <td><%= trip.cost %> </td>
+      <% driver = Driver.find_by(id: trip.driver_id) %>
+      <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
       <td><%= trip.rating %></td>
-
     </tr>
-    
-    <%end %>
+  <%end %>
 
 </table>
 
