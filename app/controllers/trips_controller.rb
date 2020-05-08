@@ -34,15 +34,10 @@ class TripsController < ApplicationController
 
     if @trip.save
       redirect_to trips_path
-    end
-
-    # if trip.save
-    #   redirect_to trip_path
-    #   return 
-    # else 
-    #   render :new 
-    #   return 
-    # end 
+    else 
+      render :new 
+      return 
+    end 
   end 
 
   def edit 
@@ -69,24 +64,5 @@ class TripsController < ApplicationController
       return
     end 
   end 
-
-  private 
-
-  # def trips_params
-  #   # defaults = {
-  #   #   date: DateTime.now().to_s, 
-  #   #   rating: 0, 
-  #   #   cost: Trip.trip_cost, 
-  #   #   driver_id: Driver.find_available_driver, 
-  #   #   passenger_id: passenger_id
-  #   # }
-
-  #   #return defaults
-  #   return params.require(:trip)
-  # end 
-
-
-  
-
 
 end
