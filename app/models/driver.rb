@@ -1,6 +1,10 @@
 class Driver < ApplicationRecord
   has_many :trips
 
+  validates :name, presence: true, length: { in: 2..50 }
+  validates :vin, presence: true 
+  validates :available, presence: true
+
   def total_earnings(driver_id)
     list_of_trips = Driver.find_by(id: driver_id).trips
 
