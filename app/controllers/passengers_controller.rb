@@ -23,7 +23,9 @@ class PassengersController < ApplicationController
     if passenger.save 
       redirect_to passengers_path
     elsif passenger.save == false 
-      #TODO
+      flash[:error] ='Error'
+      flash[:alert] ='Please verify data'
+      redirect_to new_passenger_path
     else
       render :new
       return 
@@ -49,8 +51,9 @@ class PassengersController < ApplicationController
       return 
 
     elsif passenger.save == false 
-      #TODO 
-
+      flash[:error] ='Error'
+      flash[:alert] ='Please verify data'
+      redirect_to edit_passenger_path
     else
       render :edit 
       return 

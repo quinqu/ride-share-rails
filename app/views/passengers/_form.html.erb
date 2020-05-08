@@ -1,11 +1,17 @@
-<%= form_with model: @passenger do |f| %>
-  <p>Please provide the following information about a passenger: </p>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
 
-  <%= f.label :phone_num%>
-  <%= f.text_field :phone_num %>
 
-  <%= f.submit "#{action_name} Passenger", class: "passenger-button" %>
-<% end %>
+<div class="form"> 
+  <%= form_with model: @passenger do |f| %>
+    <p>Please provide the following information about a passenger: </p>
+
+    <%= f.label "Name" %>
+    <%= f.text_field :name %>
+
+    <%= f.label "Phone Number:" %>
+    <%= f.text_field :phone_num %>
+
+    <%= f.submit "#{action_name} Passenger", class: "passenger-button" %>
+  <% end %>
+
+</div> 
