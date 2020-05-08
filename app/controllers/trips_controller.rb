@@ -62,14 +62,19 @@ class TripsController < ApplicationController
   private 
 
   def trips_params
-    return {
+    defaults = {
       "date": DateTime.now().to_s, 
       "rating": 0, 
       "cost": Trip.trip_cost, 
-      "driver_id": nil,
+      "driver_id": nil, #need to add driver method 
       "passenger_id": params[:passenger_id]
     }
+
+    return params.require(:trip).permit(:date => DateTime.now().to_s, :rating => 0, :cost => Trip.trip_cost, :driver_id => 1, :passenger_id => params[:passenger_id])
   end 
+
+
+  
 
 
 end

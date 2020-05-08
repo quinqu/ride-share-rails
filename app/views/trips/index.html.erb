@@ -1,0 +1,22 @@
+ 
+ 
+  <table>
+    <tr>
+      <th>Date</th>
+      <th> Driver </th>
+      <th> Cost </th>
+      <th> Rating </th>
+      <th> Details </th>
+
+    </tr>
+ <% @trips.each do |trip| %>
+    <tr>
+      <td><%= trip.date%> </td>
+      <% driver = Driver.find_by(id: trip.driver_id) %>
+      <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
+      <td><%= trip.cost %> </td>
+      <td><%= trip.rating %></td>
+      <td> <% link_to "Trip Details", trip_path(trip), method: :get  %> </td>
+    </tr>
+  <%end %>
+</table> 
