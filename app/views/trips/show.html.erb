@@ -1,2 +1,15 @@
-<h1> trip created, this is the trip path </h1> 
 
+<p> <%= trip.date %> </p>
+<% driver = Driver.find_by(id: trip.driver_id) %>
+<p> <%= link_to driver.name, driver_path(driver), method: :get %> </p>
+
+<% passenger = Passenger.find_by(id: trip.passenger_id) %>
+
+<%if passenger.nil? %>
+   <p> Passenger: (DELETED) </p>
+<%else%>
+  <p> Passenger: <%= link_to trip.passenger.name, passenger_path(trip.passenger_id) %> </p>
+<%end %>
+<p> Rating:  <%= trip.rating %> <p>
+<p>Cost: $<%=sprintf('%.2f', trip.cost ) %></p>
+  
