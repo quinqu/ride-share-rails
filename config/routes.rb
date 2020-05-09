@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   get 'home/index'
-  
+
   root to: 'home#index'
   
   resources :drivers, only: [:index, :show, :new, :create, :edit, :update]
 
-  resources :passengers, only: [:index, :show, :new, :create, :edit, :update] do 
+  resources :passengers do 
     resources :trips, only: [:index, :new, :show, :create]
   end 
 
