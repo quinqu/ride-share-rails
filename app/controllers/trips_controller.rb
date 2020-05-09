@@ -24,11 +24,11 @@ class TripsController < ApplicationController
   end 
 
   def create
-    
+    time = Time.new 
     @trip = Trip.create
     @trip.passenger_id = params[:passenger_id]
     @trip.driver_id = Driver.find_available_driver.id 
-    @trip.date = DateTime.now.to_s
+    @trip.date = "#{time.strftime("%d/%m/%Y")} #{time.strftime("%I:%M %p") }"
     @trip.rating = 0
     @trip.cost = Trip.trip_cost
 
