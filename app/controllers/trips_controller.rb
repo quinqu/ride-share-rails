@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-    @trip = Trip.all
+    @trip = Trip.paginate(page: params[:page], per_page: 30)
   end
 
   def show 
