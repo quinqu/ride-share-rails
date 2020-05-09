@@ -56,6 +56,13 @@ class PassengersController < ApplicationController
       redirect_to passengers_path 
       return 
     end 
+    passenger_trips = @passenger.trips 
+    
+    passenger_trips.each do |trip| 
+      Trip.delete_passenger(params[:id])
+    end 
+    
+    driver.passengers.delete(Passenger.find_by(id: params[:id]))
 
     @passenger.destroy 
 
