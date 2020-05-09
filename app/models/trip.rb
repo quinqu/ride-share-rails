@@ -8,8 +8,8 @@ class Trip < ApplicationRecord
 
   def self.delete_passenger(passenger_id)
     trip = Trip.find_by(passenger_id: passenger_id)
-
-    if trip.update(passenger_id: nil)
+    trip.passenger_id = nil
+    if trip.passenger_id == nil
       return true 
     else
       return false
