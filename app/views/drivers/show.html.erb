@@ -21,7 +21,7 @@
     <td> <%= trip.date %> </td>
     <td> <%= link_to trip.passenger.name, passenger_path(trip.passenger_id) %> </td>
     <td> <%= trip.rating %> </td>
-    <td> <%= trip.cost %> </td>
+    <td>$<%=sprintf('%.2f', trip.cost ) %></td>
   </tr>
 
 <% end %>
