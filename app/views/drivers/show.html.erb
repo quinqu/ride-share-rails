@@ -8,6 +8,7 @@
 
 <table>
   <tr>
+    <th>Trip ID</th>
     <th>Date</th>
     <th>Passenger</th>
     <th>Rating</th>
@@ -18,6 +19,7 @@
 <% @driver.trips.each do |trip| %>
 
   <tr>
+    <td> <%= link_to trip.id, trip_path(trip.id) %> </td>
     <td> <%= trip.date %> </td>
     <%if trip.passenger.nil? %>
         <td> (DELETED) </td>
