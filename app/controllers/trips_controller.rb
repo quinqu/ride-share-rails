@@ -28,12 +28,12 @@ class TripsController < ApplicationController
     @trip = Trip.create
     @trip.passenger_id = params[:passenger_id]
     @trip.driver_id = Driver.find_available_driver.id 
-    @trip.date = "TODAY"
+    @trip.date = DateTime.now.to_s
     @trip.rating = 0
     @trip.cost = Trip.trip_cost
 
     if @trip.save
-      redirect_to trips_path
+      redirect_to passenger_path(params[:passenger_id])
     else 
       render :new 
       return 
