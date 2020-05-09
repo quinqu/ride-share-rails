@@ -2,17 +2,17 @@
  <h2> All Trips </h2>
   <table>
     <tr>
-      <th>Date</th>
+      <th> Trip Date</th>
       <th> Driver </th>
       <th> Passenger </th>
       <th> Cost </th>
       <th> Rating </th>
-      <th> Details </th>
+      
 
     </tr>
  <% @trip.each do |trip| %>
     <tr>
-      <td><%=trip.date%> </td>
+      <td> <%= link_to trip.date, trip_path(trip) %> </td>
 
       <% driver = Driver.find_by(id: trip.driver_id) %>
       <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
@@ -28,7 +28,6 @@
       <td>$<%=sprintf('%.2f', trip.cost )%></td>
       <td><%= trip.rating %></td>
 
-      <td> <%= link_to "Trip Details", trip_path(trip) %> </td>
     </tr>
   <%end %>
 </table> 
