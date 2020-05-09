@@ -3,11 +3,12 @@ class Driver < ApplicationRecord
 
   validates :name, presence: true, length: { in: 2..50 }
   validates :vin, presence: true 
-  validates :available, presence: true
 
   def self.find_available_driver
+    driver = Driver.find_by(available: true)
+    driver.update(available: false)
 
-    return Driver.find_by(available: true)
+    return driver
   end
 
   def total_earnings(driver_id)
