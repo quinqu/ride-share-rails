@@ -3,7 +3,8 @@ class Trip < ApplicationRecord
   belongs_to :passenger
 
   def self.trip_cost 
-    return rand(3.0..999.9)
+    cents = rand(100..10000)
+    return cents / 100
   end
     
 end
