@@ -1,3 +1,23 @@
 // Place all the styles related to the Trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.paginate {
+  min-width: 30%;
+  overflow: auto;
+  padding: 0 0 3% 0;
+}
+
+.paginate .paginate > *{
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 30%; 
+  text-align: center; 
+  display: flex;
+  align-items: right;
+
+}
