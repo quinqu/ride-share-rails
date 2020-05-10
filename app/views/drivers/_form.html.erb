@@ -1,4 +1,5 @@
 <%= form_with model: @driver do |f| %>
+<div class="driver-form">
   <p>Please provide the following information about a driver: </p>
 
   <%= f.label :name %>
@@ -10,4 +11,5 @@
   <p> Available: <%= @driver.available%> </p>
 
   <%= f.submit "#{action_name} Driver", class: "driver-button" %>
+</div>
 <% end %>
