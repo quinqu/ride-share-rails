@@ -1,7 +1,13 @@
 <h2> Trip Details </h2>
 <p> <%= @trip.date %> </p>
 <% driver = Driver.find_by(id: @trip.driver_id) %>
-<p> <%= link_to driver.name, driver_path(driver), method: :get %> </p>
+
+<%if driver.nil? %>
+  <p> Driver: (DELETED) </p>
+<%else%>
+  <p> Driver: <%= link_to driver.name, driver_path(driver), method: :get %>  </p>
+<% end %>
+
 
 <% passenger = Passenger.find_by(id: @trip.passenger_id) %>
 

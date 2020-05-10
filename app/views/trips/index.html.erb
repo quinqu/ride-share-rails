@@ -19,7 +19,13 @@
       <td> <%= link_to trip.date, trip_path(trip) %> </td>
 
       <% driver = Driver.find_by(id: trip.driver_id) %>
-      <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
+
+      <% if driver.nil? %>
+        <td> (DELETED) </td>
+      <% else %>
+        <td> <%= link_to driver.name, driver_path(driver), method: :get %>  </td>
+      <% end %>
+      
 
     <% passenger = Passenger.find_by(id: trip.passenger_id) %>
   

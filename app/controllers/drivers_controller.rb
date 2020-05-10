@@ -1,8 +1,7 @@
 class DriversController < ApplicationController
 
-
   def index
-    @driver = Driver.paginate(page: params[:page], per_page: 30)
+    @driver = Driver.paginate(page: params[:page], per_page: 30).all.order(name: :asc)
   end
 
   def show 
@@ -39,7 +38,6 @@ class DriversController < ApplicationController
     end 
   end 
 
-
   def update
     @driver = Driver.find_by(id: params[:id])
     if @driver.nil?
@@ -54,12 +52,22 @@ class DriversController < ApplicationController
     end
   end 
 
+  def destroy 
+    driver = Driver.find_by(id: params[:id])
+    if driver.nil?
+      redirect_to drivers_path
+      return
+    end
+
+    driver.destroy
+
+    redirect_to drivers_path
+  end
+
+
   private 
 
   def driver_params
     return params.require(:driver).permit(:name, :vin, :available)
-
   end 
-
-
 end
