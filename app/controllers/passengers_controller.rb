@@ -2,9 +2,7 @@
 
 class PassengersController < ApplicationController
   def index
-    #@passenger = Passenger.all.order(name: :asc)
-
-    @passenger = Passenger.paginate(page: params[:page], per_page: 30)
+    @passenger = Passenger.paginate(page: params[:page], per_page: 30).all.order(name: :asc)
   end
 
   def show 
