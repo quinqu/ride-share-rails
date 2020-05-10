@@ -4,6 +4,7 @@
 <%= will_paginate @driver, class: "paginate"%>
 <table class="driver-table">
   <tr>
+    <th>Driver ID</th>
     <th>Name</th>
     <th>VIN</th>
     <th>Available</th>
@@ -12,6 +13,7 @@
   <% @driver.each do |driver| %>
 
   <tr>
+    <td> <%= driver.id %> </td>
     <td> <%= link_to driver.name, driver_path(driver.id) %> </td>
     <td> <%= driver.vin %> </td>
     <td> <%= driver.available %> </td>
