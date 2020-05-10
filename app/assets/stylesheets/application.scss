@@ -14,3 +14,27 @@
 /* Custom bootstrap variables must be set or imported *before* bootstrap. */
 @import "bootstrap";
 @import "**/*";
+
+
+.app-header {
+  padding: 5% 0 0 3%;
+
+}
+
+nav {
+  min-width: 90%;
+  overflow: auto;
+  padding: 0 0 3% 0;
+}
+
+nav ul > *{
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  width: 20%; 
+  text-align: center; 
+  display: flex;
+  align-items: left;
+}
