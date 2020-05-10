@@ -3,27 +3,41 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
+
+
 .paginate {
-  min-width: 30%;
+  min-width: 80%;
   overflow: auto;
-  padding: 0 0 3% 0;
+  padding: 0 5% 5% 0;
+  margin-right: 5%;
+  text-align: right;
+ 
 }
 
 .paginate .paginate > *{
-  float: right;
   padding: 12px;
   color: white;
   text-decoration: none;
   font-size: 17px;
   width: 30%; 
   text-align: center; 
-  display: flex;
-  align-items: right;
-
 }
 
 .trips-header {
   width: 100%;
   text-align: center;
+}
+
+.trip-table {
+  width: 80%;
+  padding-left: 30%;
+  width: 70%;
+  margin: 0 auto;
+  margin-left: 15%;
+}
+
+.trip-table-headers{
+  color: red;
+  margin: 10%;
 
 }
