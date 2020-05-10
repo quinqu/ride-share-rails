@@ -10,7 +10,7 @@
 }
 
 .paginate .paginate > *{
-  float: left;
+  float: right;
   padding: 12px;
   color: white;
   text-decoration: none;
@@ -19,5 +19,11 @@
   text-align: center; 
   display: flex;
   align-items: right;
+
+}
+
+.passenger-header {
+  width: 100%;
+  text-align: center;
 
 }
