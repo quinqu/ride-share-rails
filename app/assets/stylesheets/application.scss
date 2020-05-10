@@ -15,17 +15,16 @@
 @import "bootstrap";
 @import "**/*";
 
-
 .app-header {
   padding: 5% 0 0 3%;
-  
+ 
 }
 
 nav {
   max-width: 70%;
   overflow: auto;
   padding: 0 0 3% 0;
- 
+  
 }
 
 nav ul > *{
@@ -38,7 +37,6 @@ nav ul > *{
   text-align: center; 
   display: flex;
   align-items: left;
-
 }
 
 table {
@@ -55,4 +53,8 @@ th, td {
 
 a{
   color: black;
+}
+
+em {
+  color: #AC4F4F;
 }
