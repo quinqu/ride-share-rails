@@ -18,12 +18,14 @@
 
 .app-header {
   padding: 5% 0 0 3%;
+  
 }
 
 nav {
   max-width: 70%;
   overflow: auto;
   padding: 0 0 3% 0;
+ 
 }
 
 nav ul > *{
@@ -36,6 +38,7 @@ nav ul > *{
   text-align: center; 
   display: flex;
   align-items: left;
+
 }
 
 table {
@@ -48,4 +51,8 @@ table, th, td {
 
 th, td {
   padding: 1%;
+}
+
+a{
+  color: black;
 }

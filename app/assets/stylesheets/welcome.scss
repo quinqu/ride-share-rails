@@ -1,7 +1,15 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.welcome {
+  background-image: url(asset_path("seattle.jpg"));
+  background-repeat: no-repeat;
+  background-size: 100%;
+  min-height: 700px;
+  color: white;
+}
 .welcome-header {
   text-align: center;
-  padding: 10%;
+  padding: 20%;
 }
