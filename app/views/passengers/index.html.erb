@@ -7,6 +7,7 @@
   <table class="passenger-table">
     
       <tr class="passenger-table-headers">
+        <th>ID</th>
         <th>Name</th>
         <th>Phone Number</th>
       </tr>
@@ -14,8 +15,10 @@
     <% @passenger.each do |passenger|%>
    
       <tr class="passenger-data">
+        <td><%= passenger.id %></td>
         <td><%= link_to passenger.name, passenger_path(passenger) %> </td>
         <td><%= passenger.phone_num %></td>
+       
       </tr>
   
     <%end %>

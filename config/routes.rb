@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'home/index'
+  get 'welcome/index'
 
-  root to: 'home#index'
+  root to: 'welcome#index'
   
   resources :drivers
 
