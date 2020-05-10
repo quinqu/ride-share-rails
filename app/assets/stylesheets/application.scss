@@ -18,11 +18,10 @@
 
 .app-header {
   padding: 5% 0 0 3%;
-
 }
 
 nav {
-  min-width: 90%;
+  max-width: 70%;
   overflow: auto;
   padding: 0 0 3% 0;
 }
@@ -37,4 +36,8 @@ nav ul > *{
   text-align: center; 
   display: flex;
   align-items: left;
+}
+
+th, td {
+  padding: 1%;
 }
