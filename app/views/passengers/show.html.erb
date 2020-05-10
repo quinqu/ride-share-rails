@@ -8,7 +8,7 @@
 
 <h3> Passenger Trips </h3>
 
-<table>
+<table class="passenger-table">
     <tr>
       <th>Date</th>
       <th>Cost</th>
@@ -32,7 +32,8 @@
       <% end %>
       
       <td><%= trip.rating %></td>
-      <td> <% link_to "Trip Details", trip_path(trip), method: :get  %> </td>
+      <%# <td> <% link_to "Trip Details", trip_path(trip), method: :get  %> 
+      <td> <%= link_to trip.id, trip_path(trip.id) %> </td>
     </tr>
   <%end %>
 
