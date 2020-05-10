@@ -1,12 +1,14 @@
-<p>Driver: <%= @driver.name %> </p>
-<p>VIN: <%= @driver.vin %> </p>
-<p>Available: <%= @driver.available %> </p>
+<div class="driver-info">
+  <p>Driver: <%= @driver.name %> </p>
+  <p>VIN: <%= @driver.vin %> </p>
+  <p>Available: <%= @driver.available %> </p>
 
-<p>Total Earnings: <%= @driver.total_earnings(@driver.id) %> </p>
-<p>Average Rating: <%= @driver.average_rating(@driver.id) %> </p>
-<p>List of Trips: <p>
+  <p>Total Earnings: <%= @driver.total_earnings(@driver.id) %> </p>
+  <p>Average Rating: <%= @driver.average_rating(@driver.id) %> </p>
+  <p>List of Trips: <p>
+</div>
 
-<table>
+<table class="driver-table">
   <tr>
     <th>Trip ID</th>
     <th>Date</th>
@@ -34,5 +36,10 @@
 
 </table>
 
-<%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
-<%= link_to "Delete", driver_path(@driver), method: :delete, data: {confirm: "Are you sure you want to delete driver, #{@driver.name}?" } %> 
+
+<button class="edit-delete-driver">
+  <%= link_to "Edit Driver", edit_driver_path(@driver.id) %>
+</button>
+<button class="edit-delete-driver">
+  <%= link_to "Delete", driver_path(@driver), method: :delete, data: {confirm: "Are you sure you want to delete driver, #{@driver.name}?" } %> 
+</button> 
