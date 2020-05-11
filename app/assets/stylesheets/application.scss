@@ -50,15 +50,14 @@ table, th, td {
 th, td {
   padding: 1%;
 }
-td {
-  text-decoration: underline;
-}
+
 .deleted{
-  text-decoration: none;
+  text-decoration-color: gray;
 }
 
 a {
   color: black;
+  text-decoration: underline;
   
 }
 
