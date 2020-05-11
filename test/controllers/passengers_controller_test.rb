@@ -65,7 +65,7 @@ describe PassengersController do
       new_passenger = {
         passenger: {
           name: "random dude",
-          phone_num: "12345"
+          phone_num: nil
         }
       }
 
@@ -77,14 +77,59 @@ describe PassengersController do
   end
 
   describe "edit" do
-    # Your tests go here
+    it "can get to the edit page of valid id" do
+      new_passenger = {
+        passenger: {
+          name: "bernie",
+          phone_num: "1-800-cool"
+        }
+      }
+
+        post passengers_path, params: new_passenger
+        passenger = Passenger.find_by(name: new_passenger[:passenger][:name])
+        get edit_passenger_path(passenger.id)
+        must_respond_with :ok
+    end
+
+    #TODO
+    # it "will respond with redirect if nonexistent passenger" do
+    #   get edit_passenger_path(-100)
+      
+    #   must_redirect_to passengers_path
+    # end
   end
 
   describe "update" do
-    # Your tests go here
+    it "will update el passenger " do 
+      Passenger.create(name: "hehehe", phone_num: "1738")
+
+      passenger_test = {
+        passenger: {
+          name: "updated name",
+          phone_num: "200000000"
+        }
+      }
+
+      passenger = Passenger.first
+
+  
+      patch passenger_path(passenger.id), params: passenger_test
+      
+      
+    
+      expect(Passenger.first.name).must_equal passenger_test[:passenger][:name]
+      expect(Passenger.first.phone_num).must_equal passenger_test[:passenger][:phone_num]
+    end 
   end
 
   describe "destroy" do
-    # Your tests go here
+    it "will delete passenger" do
+      Passenger.create(name: "to delete", phone_num: "DELETE ME")
+
+      passenger = Passenger.first
+  
+
+      expect{delete passenger_path(Passenger.first.id)}.must_differ "Passenger.count", -1
+    end
   end
 end
