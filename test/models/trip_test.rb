@@ -62,6 +62,7 @@ describe Trip do
     end
   end
 
+<<<<<<< HEAD
   # Tests for methods you create should go here
   describe "custom methods" do
     it "can provide a random cost" do 
@@ -72,5 +73,43 @@ describe Trip do
       trip[:cost].must_be_instance_of Float
     end 
 
+=======
+  describe "validations" do
+    before do 
+      passenger = Passenger.create(name: "Nina", phone_num: "12345")
+      driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
+      @trip = Trip.new(date: "today", rating: 0, cost: Trip.trip_cost, driver_id: driver.id, passenger_id: passenger.id)
+    end
+
+    it "is valid when all fields are present" do 
+      result = @trip.valid?
+      
+      expect(result).must_equal true
+    end
+
+    it "is invalid without a passenger_id" do 
+      # Arrange
+      @trip.passenger_id = nil 
+
+      # Act
+      result = @trip.valid?
+
+      # Assert
+      expect(result).must_equal false
+    end
+
+    it "is invalid without a driver_id" do 
+    
+      @trip.driver_id = nil 
+
+      result = @trip.valid?
+
+      expect(result).must_equal false
+    end
+  end
+
+  # Tests for methods you create should go here
+  describe "custom methods" do
+>>>>>>> 65db2dd28acaa697da9d56d2ca31f3c6242488a4
   end
 end
