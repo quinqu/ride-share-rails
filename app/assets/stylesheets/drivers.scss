@@ -2,16 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.driver-index {
-  display: grid;
-  grid-template-rows: 20% 10% 70%;
-}
 
 .driver-header{
 
   width: 100%;
   text-align: center;
-
 }
 
 .paginate {
@@ -34,9 +29,9 @@
 }
 
 .driver-button {
-  border-color: $blue;
+  border-color: blue;
   color: #fff;
-  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+  box-shadow: 0 0 40px 40px blue inset, 0 0 0 0 blue;
   transition: all 150ms ease-in-out;
 }
 
