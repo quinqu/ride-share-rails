@@ -108,8 +108,4 @@ describe Trip do
     end
   end
 
-  # Tests for methods you create should go here
-  describe "custom methods" do
-
-  end
 end
