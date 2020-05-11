@@ -1,5 +1,6 @@
 <div class="trip-info">
   <h2> Trip Details </h2>
+
   <p> <%= @trip.date %> </p>
   <% driver = Driver.find_by(id: @trip.driver_id) %>
 
@@ -17,6 +18,13 @@
   <%else%>
     <p> Passenger: <%= link_to @trip.passenger.name, passenger_path(@trip.passenger_id) %> </p>
   <%end %>
-  <p> Rating:  <%= @trip.rating %> <p>
+  <div class="edit-rating">
+  <p> Rating:  <%= @trip.rating %> <p> 
+  <button> <%= link_to "Edit Rating", edit_trip_path(@trip), method: :get %> </button>
+
+  </div>
   <p>Cost: $<%=sprintf('%.2f', @trip.cost ) %></p>
+
+
 </div>
+

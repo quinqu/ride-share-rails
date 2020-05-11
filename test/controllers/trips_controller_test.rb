@@ -1,23 +1,48 @@
 require "test_helper"
 
 describe TripsController do
+
+  describe "index" do 
+    it "" do 
+
+    end 
+
+
+  end 
   describe "show" do
-    # Your tests go here
+    it "" do 
+
+    end 
+    it "" do 
+
+    end 
   end
 
   describe "create" do
-    # Your tests go here
+   
+    it "" do 
+
+    end 
+    it "" do 
+
+    end 
   end
 
   describe "edit" do
-    # Your tests go here
+    it "" do 
+
+    end 
+    it "" do 
+
+    end 
   end
 
   describe "update" do
-    # Your tests go here
-  end
+    it "" do 
 
-  describe "destroy" do
-    # Your tests go here
+    end 
+    it "" do 
+
+    end 
   end
 end

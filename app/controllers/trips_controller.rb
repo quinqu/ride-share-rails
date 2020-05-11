@@ -1,7 +1,7 @@
 class TripsController < ApplicationController
 
   def index
-    @trip = Trip.paginate(page: params[:page], per_page: 30)
+    @trip = Trip.paginate(page: params[:page], per_page: 30).all.order(date: :asc)
   end
 
   def show 
@@ -51,18 +51,25 @@ class TripsController < ApplicationController
 
 
   def update
-    trip = Trip.find_by(id: params[:id])
-
-    if trip.nil? 
+    @trip = Trip.find_by(id: params[:id])
+    
+    if @trip.nil? 
       head :not_found
       return 
-    elsif trip.update(trips_params)
-      redirect_to trip_path
+    elsif @trip.update(rating: update_params[:rating])
+      redirect_to trip_path(@trip)
       return 
     else 
       render :edit 
       return
     end 
   end 
+
+  private 
+
+  def update_params
+    params.require(:trip).permit(:rating)
+  end
+
 
 end
