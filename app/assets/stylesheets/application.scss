@@ -17,14 +17,15 @@
 
 .app-header {
   padding: 5% 0 0 3%;
- 
+  background-color: black;
+  color: white;
+
 }
 
 nav {
   max-width: 70%;
   overflow: auto;
   padding: 0 0 3% 0;
-  
 }
 
 nav ul > *{
@@ -66,6 +67,6 @@ em {
 }
 .main-link {
   text-decoration: none;
-
+  color: white;
 }
 

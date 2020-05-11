@@ -1,7 +1,9 @@
 class TripsController < ApplicationController
 
   def index
-    @trip = Trip.paginate(page: params[:page], per_page: 30).all.order(date: :asc)
+
+  @trip = Trip.paginate(page: params[:page], per_page: 30).all.order(date: :asc)
+  
   end
 
   def show 
