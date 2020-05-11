@@ -89,7 +89,34 @@ describe Driver do
     end
 
     describe "total earnings" do
-      # Your code here
+      
+      it "correctly calculates driver's total earnings" do 
+
+        # Arrange
+        new_driver.save
+        new_passenger = Passenger.create(name: "Kari", phone_num: "111-111-1211")
+        trip_1 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 5, cost: 12)
+        trip_2 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 3, cost: 60)
+        trip_3 = Trip.create(driver_id: new_driver.id, passenger_id: new_passenger.id, date: Date.today, rating: 2, cost: 30)
+
+        # Act
+        total_earnings = new_driver.total_earnings(new_driver.id)
+
+        # Assert
+        expect(total_earnings).must_equal 77.64
+      end
+
+      it "displays 0 in total earnings if a driver has no trips" do 
+
+        # Arrange
+        new_driver.save
+
+        # Act
+        total_earnings = new_driver.total_earnings(new_driver.id)
+
+        # Assert
+        expect(total_earnings).must_equal 0
+      end
     end
 
     describe "can go online" do
