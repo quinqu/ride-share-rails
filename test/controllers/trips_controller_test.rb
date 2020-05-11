@@ -64,14 +64,39 @@ describe TripsController do
   end
 
   describe "edit" do
-    it "will get valid trip" do 
+    it "responds with success when getting to the edit trip's rating page" do 
 
+      passenger = Passenger.create(name: "Nina", phone_num: "12345")
+      driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
+      new_trip = Trip.create(date: "today", rating: 0, cost: Trip.trip_cost, driver_id: driver.id, passenger_id: passenger.id)
+
+      get edit_trip_path(new_trip.id)
+      must_respond_with :success
 
     end 
   end
 
   describe "update" do
     it "will edit rating" do 
+
+      passenger = Passenger.create(name: "Nina", phone_num: "12345")
+      driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
+      new_trip = Trip.create(date: "today", rating: 0, cost: Trip.trip_cost, driver_id: driver.id, passenger_id: passenger.id)
+
+      new_trip_id = new_trip.id
+
+      new_trip_hash = {
+        trip: {
+          rating: 5
+        }
+      }
+
+      expect {
+        patch trip_path(id: new_trip_id), params: new_trip_hash
+      }.must_differ "Trip.count", 0
+
+      must_redirect_to trip_path(new_trip_id)
+      expect(Trip.find_by(id: new_trip_id).rating).must_equal new_trip_hash[:trip][:rating]
 
     end 
   end
