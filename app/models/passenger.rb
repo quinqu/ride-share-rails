@@ -3,10 +3,7 @@ class Passenger < ApplicationRecord
   
   validates :name, presence: true 
   validates :phone_num, presence: true 
-
   
-
-
   def total_passenger_cost(passenger)
     total_passenger_cost = 0 
     passenger = Passenger.find_by(id: passenger)

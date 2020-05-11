@@ -62,12 +62,15 @@ describe Trip do
     end
   end
 
-  describe "validations" do
-    # Your tests go here
-  end
-
   # Tests for methods you create should go here
   describe "custom methods" do
-    # Your tests here
+    it "can provide a random cost" do 
+      passenger = Passenger.create(name: "Nina", phone_num: "12345")
+      driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
+      trip = Trip.new(date: "today", rating: 0, cost: Trip.trip_cost)
+
+      trip[:cost].must_be_instance_of Float
+    end 
+
   end
 end

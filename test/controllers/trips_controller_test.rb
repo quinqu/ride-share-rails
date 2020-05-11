@@ -21,7 +21,7 @@ describe TripsController do
       driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
       new_trip = Trip.create(date: "today", rating: 0, cost: Trip.trip_cost, driver_id: driver.id, passenger_id: passenger.id)
 
-      # puts "trip id is #{trip.id}"
+     
       get trip_path(new_trip.id)
       must_respond_with :success
     end 

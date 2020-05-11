@@ -58,18 +58,8 @@ class PassengersController < ApplicationController
       redirect_to passengers_path 
       return 
     end 
-    passenger_trips = @passenger.trips 
-    
-    passenger_trips.each do |trip| 
-      if Trip.delete_passenger(params[:id]) 
-        puts "deleted"
-      else 
-        raise
-      end 
-    end 
     
     @passenger.destroy 
-
     redirect_to passengers_path 
     return 
   end 
