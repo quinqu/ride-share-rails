@@ -18,7 +18,6 @@ describe DriversController do
     it "responds with success when there are no drivers saved" do
       # Arrange
       # Ensure that there are zero drivers saved
-      Driver.create name: "Anna Smith", available: true
       # Act
       get drivers_path
       # Assert
@@ -73,7 +72,7 @@ describe DriversController do
       # Ensure that there is a change of 1 in Driver.count
       expect {
         post drivers_path, params: driver_hash
-      }.must_change "Driver.count", 1
+      }.must_differ "Driver.count", 1
       # Assert
       # Find the newly created Driver, and check that all its attributes match what was given in the form data
       # Check that the controller redirected the user
@@ -176,8 +175,6 @@ describe DriversController do
       expect {
         patch driver_path(-1), params: driver_hash
       }.must_differ "Driver.count", 0
-      # Assert
-      # Check that the controller gave back a 404
       
     end
 
