@@ -36,11 +36,29 @@ describe TripsController do
   describe "create" do
     it "can request new trip" do 
 
-      # #post trips_path, params: Trip.create
-      # trip = Trip.new
-      # post trips_path, params: :trip
-     
-      # expect(Trip.count).must_equal 1
+      passenger = Passenger.create(name: "Nina", phone_num: "12345")
+      driver = Driver.create(name: "Anna", vin: "qwert123", available: true)
+
+      trip_hash = {
+        trip: {
+          date: "today",
+          rating: 0,
+          cost: Trip.trip_cost,
+          driver_id: driver.id,
+          passenger_id: passenger.id
+        }
+      }
+
+      # count_before = Trip.count 
+      # puts "count before = #{count_before}"
+      # post passenger_trips_path(passenger.id), params: trip_hash
+
+      # count_after = Trip.count
+      # puts "count after = #{count_after}"
+
+      expect {
+        post passenger_trips_path(passenger.id), params: trip_hash
+      }.must_differ "Trip.count", 1
 
     end 
   end
