@@ -91,12 +91,12 @@ describe PassengersController do
         must_respond_with :ok
     end
 
-    #TODO
-    # it "will respond with redirect if nonexistent passenger" do
-    #   get edit_passenger_path(-100)
+  
+    it "will respond with redirect if nonexistent passenger" do
+      get edit_passenger_path(-100)
       
-    #   must_redirect_to passengers_path
-    # end
+      must_respond_with :not_found
+    end
   end
 
   describe "update" do
