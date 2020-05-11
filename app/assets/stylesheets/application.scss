@@ -50,10 +50,16 @@ table, th, td {
 th, td {
   padding: 1%;
 }
-
-a{
-  color: black;
+td {
   text-decoration: underline;
+}
+.deleted{
+  text-decoration: none;
+}
+
+a {
+  color: black;
+  
 }
 
 em {
@@ -64,6 +70,3 @@ em {
 
 }
 
-button{
-  text-decoration: none;
-}

@@ -4,7 +4,7 @@
   <% driver = Driver.find_by(id: @trip.driver_id) %>
 
   <%if driver.nil? %>
-    <p> Driver: (DELETED) </p>
+    <p class="deleted"> Driver: (DELETED) </p>
   <%else%>
     <p> Driver: <%= link_to driver.name, driver_path(driver), method: :get %>  </p>
   <% end %>
@@ -13,7 +13,7 @@
   <% passenger = Passenger.find_by(id: @trip.passenger_id) %>
 
   <%if passenger.nil? %>
-    <p> Passenger: (DELETED) </p>
+    <p class="deleted"> Passenger: (DELETED) </p>
   <%else%>
     <p> Passenger: <%= link_to @trip.passenger.name, passenger_path(@trip.passenger_id) %> </p>
   <%end %>

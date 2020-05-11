@@ -26,7 +26,7 @@
       <% driver = Driver.find_by(id: trip.driver_id) %>
 
       <%if driver.nil? %>
-        <td> (DELETED) </td>
+        <td class="deleted"> (DELETED) </td>
       <%else%>
         <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
       <% end %>
