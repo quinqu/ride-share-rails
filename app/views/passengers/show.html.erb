@@ -1,12 +1,12 @@
-<h2> <%= @passenger.name %> </h2>
-<p> <%= @passenger.phone_num %> </p> 
-<p> <%= @passenger.total_passenger_cost(@passenger.id) %><p> 
 
-<%= link_to "Edit", edit_passenger_path(@passenger), method: :get %> 
-<%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Are you sure you want to delete passenger, #{@passenger.name}?" }%> 
-<%= link_to "Request Trip", passenger_trips_path(@passenger.id), method: :post %> 
+<div class='show-info-passenger'> 
+  <h2> <%= @passenger.name %> </h2>
+  <p> Phone Number: <%= @passenger.phone_num %> </p> 
+  <p> Cumulative Cost: $<%= @passenger.total_passenger_cost(@passenger.id) %><p> 
 
-<h3> Passenger Trips </h3>
+</div> 
+
+<h3 class="show-header-passenger"> Passenger Trips </h3>
 
 <table class="passenger-table">
     <tr>
@@ -18,7 +18,7 @@
       
     </tr>
 
- <% @passenger.trips.each do |trip| %>
+  <% @passenger.trips.each do |trip| %>
     <tr>
 
       <td><%= trip.date%> </td>
@@ -31,13 +31,28 @@
         <td><%= link_to driver.name, driver_path(driver), method: :get %>  </td>
       <% end %>
       
-      <td><%= trip.rating %></td>
-      <%# <td> <% link_to "Trip Details", trip_path(trip), method: :get  %> 
+      <td> <%=trip.rating%></td>
       <td> <%= link_to trip.id, trip_path(trip.id) %> </td>
     </tr>
   <%end %>
 
 </table>
+
+<div class="show-buttons-passenger">
+
+<button class="edit-delete-passenger">
+<%= link_to "Edit", edit_passenger_path(@passenger), method: :get %> 
+</button>
+
+<button class="edit-delete-passenger">
+<%= link_to "Delete", passenger_path(@passenger), method: :delete, data: {confirm: "Are you sure you want to delete passenger, #{@passenger.name}?" }%> 
+</button>
+
+<button class="edit-delete-passenger">
+<%= link_to "Request Trip", passenger_trips_path(@passenger.id), method: :post %> 
+</button>
+
+</div> 
 
 
 
