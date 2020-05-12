@@ -19,7 +19,8 @@
     <p> Passenger: <%= link_to @trip.passenger.name, passenger_path(@trip.passenger_id) %> </p>
   <%end %>
   <div class="edit-rating">
-  <p> Rating:  <%= @trip.rating %> <p> 
+  <p> Rating:  <%= @trip.rating %> </p> 
+
   <button> <%= link_to "Edit Rating", edit_trip_path(@trip), method: :get %> </button>
 
   </div>
