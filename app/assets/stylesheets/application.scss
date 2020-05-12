@@ -51,7 +51,10 @@ table, th, td {
 th, td {
   padding: 1%;
 }
-
+th {
+  background-color: #E5B8B8;
+  border: 2px solid black;
+}
 .deleted{
   text-decoration-color: gray;
 }
@@ -59,11 +62,14 @@ th, td {
 a {
   color: black;
   text-decoration: underline;
-  
 }
 
 em {
-  color: #AC4F4F;
+ color: #AC4F4F;
+}
+
+button > *{
+  text-decoration: none;
 }
 .main-link {
   text-decoration: none;
