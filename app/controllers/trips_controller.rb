@@ -26,19 +26,29 @@ class TripsController < ApplicationController
   end 
 
   def create
-    time = Time.new 
-    @trip = Trip.new
-    @trip.passenger_id = params[:passenger_id]
-    @trip.driver = Driver.find_available_driver
-    @trip.date = "#{time.strftime("%d/%m/%Y")} #{time.strftime("%I:%M %p") }"
-    @trip.rating = 0
-    @trip.cost = Trip.trip_cost
 
-    if @trip.save
+    driver = Driver.find_available_driver
+
+    if driver.nil?
+      flash[:error] = "There are no available drivers at the moment"
       redirect_to passenger_path(params[:passenger_id])
-    else 
-      render :new 
-      return 
+    else
+
+      time = Time.new 
+      @trip = Trip.new
+      @trip.passenger_id = params[:passenger_id]
+      @trip.driver = driver
+
+      @trip.date = "#{time.strftime("%d/%m/%Y")} #{time.strftime("%I:%M %p") }"
+      @trip.rating = 0
+      @trip.cost = Trip.trip_cost
+
+      if @trip.save
+        redirect_to passenger_path(params[:passenger_id])
+      else 
+        render :new 
+        return 
+      end
     end 
   end 
 

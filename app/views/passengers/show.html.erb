@@ -1,4 +1,8 @@
 
+<section class="flash">
+  <h4> <%=flash[:error] %> </h4>
+</section>
+
 <div class='show-info-passenger'> 
   <h2> <%= @passenger.name %> </h2>
   <p> Phone Number: <%= @passenger.phone_num %> </p> 
@@ -36,6 +40,8 @@
     </tr>
   <%end %>
 </table>
+
+
 
 <div class="show-buttons-passenger">
 

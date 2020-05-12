@@ -6,9 +6,14 @@ class Driver < ApplicationRecord
 
   def self.find_available_driver
     driver = Driver.find_by(available: true)
-    driver.update(available: false)
 
-    return driver
+    if driver.nil?
+      return nil 
+    else
+      driver.update(available: false)
+
+      return driver
+    end
   end
 
   def total_earnings(driver_id)
