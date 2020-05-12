@@ -60,6 +60,8 @@ describe TripsController do
         post passenger_trips_path(passenger.id), params: trip_hash
       }.must_differ "Trip.count", 1
 
+      must_redirect_to passenger_path(passenger.id)
+
     end 
   end
 
