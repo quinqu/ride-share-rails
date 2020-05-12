@@ -49,13 +49,6 @@ describe TripsController do
         }
       }
 
-      # count_before = Trip.count 
-      # puts "count before = #{count_before}"
-      # post passenger_trips_path(passenger.id), params: trip_hash
-
-      # count_after = Trip.count
-      # puts "count after = #{count_after}"
-
       expect {
         post passenger_trips_path(passenger.id), params: trip_hash
       }.must_differ "Trip.count", 1
